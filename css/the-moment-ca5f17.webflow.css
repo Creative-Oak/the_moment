@@ -262,6 +262,21 @@ li {
   font-size: 1rem;
 }
 
+.date_wrapper {
+  margin-top: 1rem;
+  margin-right: 1rem;
+  position: absolute;
+  top: 0%;
+  bottom: auto;
+  left: auto;
+  right: 0%;
+}
+
+.text-block-2 {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
 @media screen and (max-width: 767px) {
   .main_image {
     width: 60vw;
@@ -274,11 +289,40 @@ li {
 
 @media screen and (max-width: 479px) {
   .main_image {
-    width: 90vw;
+    width: 70vw;
   }
 
   .desc {
-    width: 95vw;
+    width: 80vw;
+    font-size: 1rem;
+  }
+
+  .button {
+    padding: .75rem 1rem;
+    font-size: 1rem;
+  }
+
+  .social_icons {
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+  }
+
+  .loading_bar {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 5px;
+    margin-right: 0;
+    position: absolute;
+    top: auto;
+    bottom: 0%;
+    left: 0%;
+    right: 0%;
+  }
+
+  .loading_bar_block {
+    height: 100vw;
+    transform: rotate(90deg);
   }
 }
 
