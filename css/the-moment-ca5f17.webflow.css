@@ -120,6 +120,7 @@ li {
 }
 
 .main-content {
+  z-index: 5;
   grid-column-gap: 2rem;
   grid-row-gap: 2rem;
   flex-flow: column;
@@ -128,6 +129,7 @@ li {
   width: 100%;
   height: 100%;
   display: flex;
+  position: relative;
 }
 
 .main_image {
@@ -153,25 +155,29 @@ li {
 .button {
   opacity: 1;
   color: var(--white);
+  text-transform: uppercase;
   mix-blend-mode: normal;
   background-color: rgba(255, 255, 255, 0);
   border: 1px solid #fff;
   border-radius: 7px;
   padding: 12px 22px;
+  font-size: 1.25rem;
   transition: all .4s cubic-bezier(.645, .045, .355, 1);
 }
 
 .button:hover {
   color: var(--black);
+  text-transform: uppercase;
   background-color: #fff;
-  border-top-left-radius: 0;
-  border-bottom-right-radius: 0;
+  font-style: normal;
+  font-weight: 400;
 }
 
 .social_icons {
+  z-index: 6;
   grid-column-gap: 16px;
   grid-row-gap: 16px;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
   margin-right: 2rem;
   display: flex;
   position: absolute;
@@ -182,12 +188,19 @@ li {
 }
 
 .icon-embed-xsmall {
+  outline-offset: 0px;
+  outline-style: none;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 2rem;
   height: 2rem;
+  transition: filter .2s ease-in-out;
   display: flex;
+}
+
+.icon-embed-xsmall:hover {
+  filter: invert();
 }
 
 .loading_bar {
@@ -204,6 +217,7 @@ li {
 }
 
 .loading_bar_block {
+  mix-blend-mode: soft-light;
   background-color: #000;
   border-radius: 20px;
   flex-flow: column;
@@ -217,7 +231,7 @@ li {
 .loading_white {
   background-color: #fff;
   border-radius: 20px;
-  height: 0%;
+  height: 29%;
 }
 
 .logo-wrapper {
@@ -237,7 +251,7 @@ li {
 .left-side-names {
   justify-content: flex-start;
   align-items: center;
-  width: 30%;
+  width: 100%;
   padding-left: 2rem;
   display: flex;
   position: absolute;
@@ -248,18 +262,30 @@ li {
 }
 
 .list {
+  z-index: 5;
+  flex-flow: column;
+  justify-content: space-between;
+  min-height: 100%;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
   list-style-type: none;
+  display: flex;
+  position: relative;
 }
 
 .list-item {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  font-family: ivypresto-headline, sans-serif;
+  font-style: italic;
+  font-weight: 600;
 }
 
 .tb {
+  text-transform: uppercase;
   cursor: default;
   mix-blend-mode: difference;
-  font-size: 1rem;
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1;
 }
 
 .date_wrapper {
@@ -273,8 +299,66 @@ li {
 }
 
 .text-block-2 {
-  font-size: 1rem;
+  font-size: 2rem;
+  font-style: italic;
   font-weight: 400;
+}
+
+.spacer {
+  margin-top: 0;
+}
+
+@media screen and (max-width: 991px) {
+  .main-content {
+    grid-column-gap: 0rem;
+    grid-row-gap: 0rem;
+    flex-flow: row;
+    justify-content: space-around;
+    align-items: center;
+    width: auto;
+    height: auto;
+    padding: 2rem;
+  }
+
+  .main_image {
+    margin-left: 0;
+  }
+
+  .button {
+    display: block;
+  }
+
+  .button.cta, .social_icons {
+    display: none;
+  }
+
+  .social_icons.responsive {
+    flex-flow: column;
+    margin-bottom: 2rem;
+    display: flex;
+  }
+
+  .left-side-names {
+    width: 100%;
+    padding-right: 2rem;
+    position: relative;
+  }
+
+  .text-block-2 {
+    font-size: 1.5rem;
+  }
+
+  .cta_responsive {
+    margin-bottom: 2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    display: inline-block;
+    position: absolute;
+    top: auto;
+    bottom: 0%;
+    left: 0%;
+    right: auto;
+  }
 }
 
 @media screen and (max-width: 767px) {
@@ -282,12 +366,38 @@ li {
     width: 60vw;
   }
 
-  .left-side-names {
-    display: none;
+  .list {
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    height: auto;
+    padding-top: 0;
+    padding-bottom: 0;
+    display: flex;
+  }
+
+  .list-item {
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+  .tb {
+    font-size: 4vh;
+  }
+
+  .text-block-2 {
+    text-align: right;
+    font-size: 1rem;
   }
 }
 
 @media screen and (max-width: 479px) {
+  .main-content {
+    flex-flow: wrap;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
   .main_image {
     width: 70vw;
   }
@@ -323,6 +433,24 @@ li {
   .loading_bar_block {
     height: 100vw;
     transform: rotate(90deg);
+  }
+
+  .list {
+    grid-column-gap: .5rem;
+    grid-row-gap: .5rem;
+    flex-flow: column;
+    justify-content: space-around;
+    display: flex;
+  }
+
+  .list-item {
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+  .tb {
+    mix-blend-mode: normal;
+    font-size: 3vh;
   }
 }
 
