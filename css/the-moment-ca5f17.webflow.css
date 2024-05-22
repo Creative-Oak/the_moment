@@ -94,7 +94,7 @@ li {
 
 .mouse-hover {
   z-index: 5;
-  opacity: 1;
+  opacity: .25;
   mix-blend-mode: difference;
   justify-content: center;
   align-items: center;
@@ -263,6 +263,7 @@ li {
 
 .list {
   z-index: 5;
+  mix-blend-mode: difference;
   flex-flow: column;
   justify-content: space-between;
   min-height: 100%;
